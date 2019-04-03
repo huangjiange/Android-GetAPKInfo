@@ -4,18 +4,13 @@
 
 作为基于Android平台的渠道SDK的开发者或者联调同学每天都会面对大量的apk，需要检查他们的包名（packageName）、版本(versionName\versionCode)、应用签名(Signature)等信息，尤其现在Android的V2签名认证(APK Signature Scheme v2)带来的问题更多，为了提高工作效率，整理了一个获取应用基本信息的系列工具集。
 
-目前主干已经修改为使用Android Studio来构建，如果需要使用Eclipse来构建，请查看项目分支：
-
-Eclipse：[https://github.com/bihe0832/Android-GetAPKInfo/tree/eclipse](https://github.com/bihe0832/Android-GetAPKInfo/tree/eclipse)
 ## 目录结构
 
 	├── AndroidGetSignature.apk : 一款基于Android Studio开发的通过包名获取apk签名的应用
 	│
 	├── AndroidGetSignature : AndroidGetSignature.apk对应源码
 	│
-	├── AXMLPrinter2_zixie.jar ：对于官方工具AXMLPrinter2的优化，解决因为不同api下apk的AndroidMainfest编码引起的问题
-	│
-	├── AXMLPrinter2_zixie ：AXMLPrinter2_zixie.jar的源码
+	├── CheckAndroidV2Signature.jar ：一款基于Java环境的校验APK是否使用Android-V2签名，如果使用V2，V2校验是否通过的工具
 	│
 	├── CheckAndroidV2SignatureByAPKSig ：CheckAndroidV2SignatureByAPKSig.jar的源码
 	│
@@ -23,7 +18,9 @@ Eclipse：[https://github.com/bihe0832/Android-GetAPKInfo/tree/eclipse](https://
 	│
 	├── CheckAndroidV2Signature ：CheckAndroidV2Signature.jar的源码
 	│
-	├── GetApkInfo.jar ：一款基于Java环境的读取apk的包名、版本号、签名、是否使用V2签名，V2签名校验是否通过的工具
+	├── getPackageInfo.jar ：一款基于Java环境的读取apk的包名、版本号、签名、是否使用V2签名，V2签名校验是否通过的工具
+	│
+	├── getMorePackageInfo.jar ：getPackageInfo.jar的升级版，增加了权限、SDK版本的获取
 	│
 	├── GetApkInfo ： getPackageInfo.jar的源码
 	│
@@ -35,15 +32,11 @@ Eclipse：[https://github.com/bihe0832/Android-GetAPKInfo/tree/eclipse](https://
 	
 ## 使用方法
 
-这里仅列出主要操作的使用方法，详细内容请查看对应目录的README文件。
+这里仅列出主要操作的使用方法，详细内容请查看对应目录的README文件
 
 ### AndroidGetSignature.apk 
 
 安装AndroidGetSignature.apk 后输入包名，点击获取
-
-### AXMLPrinter2_zixie.jar 
-
-非可执行jar，主要是对官方工具AXMLPrinter2针对不同api下AndroidMainfest编码不同导致解析异常的优化，解决[https://github.com/bihe0832/Android-GetAPKInfo/issues/1](https://github.com/bihe0832/Android-GetAPKInfo/issues/1) 和 [https://github.com/bihe0832/Android-GetAPKInfo/issues/5](https://github.com/bihe0832/Android-GetAPKInfo/issues/5)遇到的问题
 
 ### CheckAndroidV2Signature.jar
 
@@ -103,8 +96,6 @@ Eclipse：[https://github.com/bihe0832/Android-GetAPKInfo/tree/eclipse](https://
 
 - [Android的APK Signature Scheme v2签名及一款基于Java环境的校验工具介绍](http://blog.bihe0832.com/android-v2-signature.html)
 
-- [如何使用Eclipse开发可执行Jar程序，并生成混淆过的jar程序](http://blog.bihe0832.com/runnable-jar.html)
-
-- [使用Android Studio开发可独立运行（runnable）混淆过的Jar程序](http://blog.bihe0832.com/as-runnable-jar.html)
+- [如何生成混淆过的可执行的jar程序](http://blog.bihe0832.com/runnable-jar.html)
 
 - [一个关于APK Signature Scheme v2签名的神奇bug定位经历](http://blog.bihe0832.com/android-v2-issue.html)
